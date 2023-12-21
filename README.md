@@ -1,3 +1,10 @@
+<style>
+  .blue-text {
+    color: blue;
+    font-family: 'Courier New', monospace;
+  }
+</style>
+
 # Human Resource Analytics Employee Retention
 
 **Hook and Overview***
@@ -108,12 +115,38 @@ I used Cox-Proportional Tests to analyze which factors influence the survival ti
 
 **Data Exploration***
 
-During the Exploratory Data Analysis, the first thing I do was checking the data type of the variables,
+During the Exploratory Data Analysis, the first thing I do was checking the data type of the variables, the results are shown below
 
+<center>
+<img src="Variables_info.jpg" width="300" height="auto">
+<figcaption> <strong>Figure 1.</strong> Content summary for the HR-Employee dataset. </figcaption>
+</center>
 
+We can observed that this dataset does not have Null rows, and most of the variables are numeric, only Department and Salary are categorical, this last variable is classified as Low, Medium, and High.
 
+The next step in the EDA, was to analyze the presence of incorrect data, such as Negative values, outliers, and type errors in the categorical variables. First, a Descriptive statistics of the numeric data is shown below,
 
-**Significance and Objectives***
+<center>
+<img src="Description.jpg" width="600" height="auto">
+<figcaption> <strong>Figure 2.</strong> Summary Descriptive Statistics of the HR-employee dataset. </figcaption>
+</center>
+
+As we can see, the min value of all the variables are non-negative, and the max values seems to have reasonable values, there are no radical presence of outliers in this dataset. An analysis of outliers is going to be done later.
+
+Finally, the last step in the EDA was to check for duplicates in the data, using the .duplicated() function from the Pandas Library, we found the presence of 3008 duplicated entries in the dataset. Shown below,
+
+<center>
+<img src="Duplicates.jpg" width="600" height="auto">
+<figcaption> <strong>Figure 3.</strong> Duplicated entries in the HR-Employee Dataset. </figcaption>
+</center>
+
+The appropiate approach would be to ask the dataset owner to check these entries and find out if these entries are unique and legit people or it was a typo error. However the case, in the current situation the approach was to eliminated them, because duplicated data do not provide new information, but it creates incorrect and skew results. The final verification was checking the unique entries in the categorical variables, to find any typo error in these variables, the results are shown below,
+
+<center>
+<img src="Categorical.jpg" width="auto" height="auto">
+<figcaption> <strong>Figure 4.</strong> Duplicates in the categorical variables of the HR-Employee dataset. </figcaption>
+</center>
+
 
 **Limitations***
 
