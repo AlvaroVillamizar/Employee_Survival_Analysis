@@ -1,10 +1,3 @@
-<style>
-  .blue-text {
-    color: blue;
-    font-family: 'Courier New', monospace;
-  }
-</style>
-
 # Human Resource Analytics Employee Retention
 
 **Hook and Overview***
@@ -26,23 +19,12 @@ In this project I analyzed and discussed the main causes for employee turnover b
 The dataset used for this analysis can be found in <a href= "https://kaggle.com/datasets/mfaisalqureshi/hr-analytics-and-job-prediction/data">Kaggle</a>, this dataset is also part of the capstone project in the <a href= "https://www.coursera.org/professional-certificates/google-advanced-data-analytics"> Google Advanced Data Analytics Certificate</a>. This dataset contains employees information collected throughout 10 years, the information inside is distribuited in 15.000 rows and 10 columns, the columns are described as follows:
 
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-1g7j{background-color:#ffffff;border-color:inherit;color:rgba(0, 0, 0, 0.87);font-weight:bold;text-align:center;
-  vertical-align:middle}
-.tg .tg-8spe{background-color:#ffffff;border-color:inherit;color:rgba(0, 0, 0, 0.87);text-align:left;vertical-align:middle}
-.tg .tg-14gg{background-color:#ffffff;color:#000000;text-align:left;vertical-align:top}
-</style>
 <table class="tg">
 <thead>
   <tr>
-    <td class="tg-1g7j"><span style="font-weight:bold">Variable</span></th>
-    <td class="tg-1g7j"><span style="font-weight:bold">Description</span></th>
-    <td class="tg-14gg"><span style="font-weight:bold">Type</span></th>
+    <td class="tg-1g7j"> <strong> Variable </strong> </th>
+    <td class="tg-1g7j"> <strong> Description </strong></th>
+    <td class="tg-14gg"> <strong> Type </strong></th>
   </tr>
 </thead>
 <tbody>
@@ -117,35 +99,43 @@ I used Cox-Proportional Tests to analyze which factors influence the survival ti
 
 During the Exploratory Data Analysis, the first thing I do was checking the data type of the variables, the results are shown below
 
-<center>
-<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Variables_info.jpg" width="300" height="auto">
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Variables_info.jpg" width="auto" height="auto">
 <figcaption> <strong>Figure 1.</strong> Content summary for the HR-Employee dataset. </figcaption>
-</center>
+</p>
+</figure>
 
 We can observed that this dataset does not have Null rows, and most of the variables are numeric, only Department and Salary are categorical, this last variable is classified as Low, Medium, and High.
 
 The next step in the EDA, was to analyze the presence of incorrect data, such as Negative values, outliers, and type errors in the categorical variables. First, a Descriptive statistics of the numeric data is shown below,
 
-<center>
-<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Description.jpg" width="600" height="auto">
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Description.jpg" width="auto" height="auto">
 <figcaption> <strong>Figure 2.</strong> Summary Descriptive Statistics of the HR-employee dataset. </figcaption>
-</center>
+</p>
+</figure>
 
 As we can see, the min value of all the variables are non-negative, and the max values seems to have reasonable values, there are no radical presence of outliers in this dataset. An analysis of outliers is going to be done later.
 
 Finally, the last step in the EDA was to check for duplicates in the data, using the .duplicated() function from the Pandas Library, we found the presence of 3008 duplicated entries in the dataset. Shown below,
 
-<center>
-<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Duplicates.jpg" width="600" height="auto">
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Duplicates.jpg" width="auto" height="auto">
 <figcaption> <strong>Figure 3.</strong> Duplicated entries in the HR-Employee Dataset. </figcaption>
-</center>
+</p>
+</figure>
 
 The appropiate approach would be to ask the dataset owner to check these entries and find out if these entries are unique and legit people or it was a typo error. However the case, in the current situation the approach was to eliminated them, because duplicated data do not provide new information, but it creates incorrect and skew results. The final verification was checking the unique entries in the categorical variables, to find any typo error in these variables, the results are shown below,
 
-<center>
+<figure class="image">
+<p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Categorical.jpg" width="auto" height="auto">
 <figcaption> <strong>Figure 4.</strong> Duplicates in the categorical variables of the HR-Employee dataset. </figcaption>
-</center>
+</p>
+</figure>
 
 
 **Limitations***
@@ -160,11 +150,18 @@ Some of the limitations that are found within the dataset is that the variable '
 
 # Project organization
 
-<font color="red"> Explain briefly how the github is going to be structured </font>
+```
+.
+├── Images/                             : All plots from the analysis
+├── HR-Project.ipynb                    : EDA, Survival Analysis, and ML implementation
+└── README.md                           : Report
+```
 
 ## Turnover Survival Analysis
 
 <font color="red"> Explain a little about what survival analysis is, how is going to help for this data set* </font>
+
+
 
 <font color="red"> finished with the objectives of this section* </font>
 
