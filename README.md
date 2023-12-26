@@ -160,11 +160,97 @@ Moreover, during this exploratory analysis some limitations were evident, one of
 <font color="red"> Explain a little about what survival analysis is, how is going to help for this data set* </font>
 
 
-
-
-
 <font color="red"> finished with the objectives of this section* </font>
 
 <font color="red"> Introduce Kaplan-Meier Curve for Tenure* </font>
 
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Kaplan_Meier_Curve.png" width="auto" height="auto">
+<figcaption> <strong>Figure 5.</strong> Survival Curve for all Employees in the dataset. </figcaption>
+</p>
+</figure>
+
+
 <font color="red"> Explain each findings in Tenure vs Salary, Department, Promotion, Monthly Hours, Last Evaluation, Satisfaction, Work Accidents, and Number of projects.** </font>
+
+**Salary**
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Salary.png" width="auto" height="auto">
+<figcaption> <strong>Figure 6.</strong> Survival Curve in Salary groups (left), and number of employees in each group (right). </figcaption>
+</p>
+</figure>
+
+**Departments**
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Department.png" width="auto" height="auto">
+<figcaption> <strong>Figure 7.</strong> Survival Curve in Department groups (left), and number of employees in each group (right). </figcaption>
+</p>
+</figure>
+
+**Promotion**
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Promotion.png" width="auto" height="auto">
+<figcaption> <strong>Figure 8.</strong> Survival Curve in Promotion groups (left), and number of employees in each group (right). </figcaption>
+</p>
+</figure>
+
+**Monthly Hours**
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Hours.png" width="auto" height="auto">
+<figcaption> <strong>Figure 9.</strong> Survival Curve in Monthly Hours groups (left), and number of employees in each group (right). </figcaption>
+</p>
+</figure>
+
+**Evaluation**
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Evaluation.png" width="auto" height="auto">
+<figcaption> <strong>Figure 10.</strong> Survival Curve in Last Evaluation groups (left), and number of employees in each group (right). </figcaption>
+</p>
+</figure>
+
+**Satisfaction**
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Satisfaction.png" width="auto" height="auto">
+<figcaption> <strong>Figure 11.</strong> Survival Curve in Satisfaction groups (left), and number of employees in each group (right). </figcaption>
+</p>
+</figure>
+
+**Work Accidents**
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Accidents.png" width="auto" height="auto">
+<figcaption> <strong>Figure 12.</strong> Survival Curve in Accident groups (left), and number of employees in each group (right). </figcaption>
+</p>
+</figure>
+
+**Number of Projects**
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Projects.png" width="auto" height="auto">
+<figcaption> <strong>Figure 13.</strong> Survival Curve in Projects group (left), and number of employees in each group (right). </figcaption>
+</p>
+</figure>
+
+**Cox Model Results**
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Results/Cox_Model_Results.png" width="auto" height="auto">
+<figcaption> <strong>Figure 14.</strong> Cox Proportional Hazard Model Results. </figcaption>
+</p>
+</figure>
