@@ -1,6 +1,5 @@
 # Human Resource Analytics Employee Retention
 
-**Hook and Overview***
 
 Employee retention is defined as the organization's ability to prevent employee turnover, or the loss of organizational talent over a period of time, either voluntary or involuntary.  According to the Society for Human Resource Management (SHRM), the cost to replace just one employee can be three to four times the position's salary. In the US, the overall cost of employee turnover in 2020, was 630 billion dollars. Keeping turnover rates low helps you avoid these expenses and frees up money in the company budget to invest in people's development, benefits, and more.
 
@@ -91,7 +90,7 @@ From the Variables in the previous column, we can highlight left as our targer v
 
 Survival Analysis is a technique used to study the amount of time it takes before an event occurs, usually this events can only occur once (e.g death). For this analysis, we are interested in analyze the length of time before an employee decides to leave the company, find which groups are more likely to left, and why is that.
 
-I used Kaplan-Meier Curves to represent the survival rate of employees in the time span of 10 years. To construct this curves, is necessary to define the time interval, in this case 'tenure', and calculate the the survival probabilities within each interval.
+I used Kaplan-Meier Curves to represent the survival rate of employees in the time span of 10 years. To construct this curves, is necessary to define the time interval, in this case 'tenure', and calculate the survival probabilities within each interval.
 
 I used Cox-Proportional Tests to analyze which factors influence the survival time and to find the predictor variables to employee turnover. And, finished the analysis with a classification machine learning model to predict Whether an employee left the company.
 
@@ -101,7 +100,7 @@ During the Exploratory Data Analysis, the first thing I do was checking the data
 
 <figure class="image">
 <p align="center">
-<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Variables_info.jpg" width="auto" height="auto">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Results/Variables_info.jpg" width="auto" height="auto">
 <figcaption> <strong>Figure 1.</strong> Content summary for the HR-Employee dataset. </figcaption>
 </p>
 </figure>
@@ -112,7 +111,7 @@ The next step in the EDA, was to analyze the presence of incorrect data, such as
 
 <figure class="image">
 <p align="center">
-<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Description.jpg" width="auto" height="auto">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Results/Description.jpg" width="auto" height="auto">
 <figcaption> <strong>Figure 2.</strong> Summary Descriptive Statistics of the HR-employee dataset. </figcaption>
 </p>
 </figure>
@@ -123,7 +122,7 @@ Finally, the last step in the EDA was to check for duplicates in the data, using
 
 <figure class="image">
 <p align="center">
-<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Duplicates.jpg" width="auto" height="auto">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Results/Duplicates.jpg" width="auto" height="auto">
 <figcaption> <strong>Figure 3.</strong> Duplicated entries in the HR-Employee Dataset. </figcaption>
 </p>
 </figure>
@@ -132,17 +131,14 @@ The appropiate approach would be to ask the dataset owner to check these entries
 
 <figure class="image">
 <p align="center">
-<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Categorical.jpg" width="auto" height="auto">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Results/Categorical.jpg" width="auto" height="auto">
 <figcaption> <strong>Figure 4.</strong> Duplicates in the categorical variables of the HR-Employee dataset. </figcaption>
 </p>
 </figure>
 
 
-**Limitations***
+Moreover, during this exploratory analysis some limitations were evident, one of them are presented in the variable 'time_spend_company', which was crucial for the survival analysis, this variable wasn't collected on a monthly basis. Therefore, some of the keys insights are less accurate, because some problems that can led to turnover can happen earlier than expected. More information of the moment in which the employees left, can improve the reaction time of the action plan to prevent employee turnover.
 
-Some of the limitations that are found within the dataset is that the variable 'time_spend_company', which was crucial for the survival analysis, wasn't collected on a monthly basis. Therefore, some of the keys insights can be less accurate because of this, with more information of the moment in which the employees left, some of the action plan can be deployed promply.
-
-- Or find with more precision, the reasons for turnover.
 
 **Audience Appeal***
 
@@ -153,13 +149,17 @@ Some of the limitations that are found within the dataset is that the variable '
 ```
 .
 ├── Images/                             : All plots from the analysis
+│    ├── Plots/
+│    └── Results/
 ├── HR-Project.ipynb                    : EDA, Survival Analysis, and ML implementation
 └── README.md                           : Report
 ```
 
-## Turnover Survival Analysis
+# Turnover Survival Analysis
 
 <font color="red"> Explain a little about what survival analysis is, how is going to help for this data set* </font>
+
+
 
 
 
