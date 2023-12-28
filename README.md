@@ -3,9 +3,7 @@
 
 Employee retention is defined as the organization's ability to prevent employee turnover, or the loss of organizational talent over a period of time, either voluntary or involuntary.  According to the Society for Human Resource Management (SHRM), the cost to replace just one employee can be three to four times the position's salary. In the US, the overall cost of employee turnover in 2020, was 630 billion dollars. Keeping turnover rates low helps you avoid these expenses and frees up money in the company budget to invest in people's development, benefits, and more.
 
-**Scope and Objectives***
-
-In this project I analyzed and discussed the main causes for employee turnover by performing survival analysis and building a machine learning model, in order to give an answer to the following questions.
+**Scope and Objectives**: In this project I analyzed and discussed the main causes for employee turnover by performing survival analysis and building a machine learning model, in order to give an answer to the following questions.
 
 - What is the employee's lifetime in the company?
 - What are the significant factors that drive employee turnover?
@@ -13,7 +11,7 @@ In this project I analyzed and discussed the main causes for employee turnover b
 - What can be done in order to improve retention?
 - How can we predict when an employee is likely to left?
 
-**Dataset Introduction***
+**Dataset Introduction**
 
 The dataset used for this analysis can be found in <a href= "https://kaggle.com/datasets/mfaisalqureshi/hr-analytics-and-job-prediction/data">Kaggle</a>, this dataset is also part of the capstone project in the <a href= "https://www.coursera.org/professional-certificates/google-advanced-data-analytics"> Google Advanced Data Analytics Certificate</a>. This dataset contains employees information collected throughout 10 years, the information inside is distribuited in 15.000 rows and 10 columns, the columns are described as follows:
 
@@ -80,13 +78,11 @@ The dataset used for this analysis can be found in <a href= "https://kaggle.com/
 </tbody>
 </table>
 
+**Table 1.** Content summary of HR-dataset's variables.
 
+The Variables from the previous column, we can highlight **_left_** as our targer variable, and **_time_spend_company_** (or tenure), because this two variable are esential to perform a survival analysis. Therefore, with Survival Analysis techniques we can uncovered relevant features of employee turnover, in the timeline of 10 years.
 
-**Key Variables***
-
-From the Variables in the previous column, we can highlight left as our targer variable, and time_spend_company (or tenure), because this two variable are esential to perform a survival analysis. Therefore, with Survival Analysis techniques we can uncovered relevant features of employee turnover, in the timeline of 10 years.
-
-**Methodology Overview***
+**Methodology Overview**
 
 Survival Analysis is a technique used to study the amount of time it takes before an event occurs, usually this events can only occur once (e.g death). For this analysis, we are interested in analyze the length of time before an employee decides to leave the company, find which groups are more likely to left, and why is that.
 
@@ -94,7 +90,7 @@ I used Kaplan-Meier Curves to represent the survival rate of employees in the ti
 
 I used Cox-Proportional Tests to analyze which factors influence the survival time and to find the predictor variables to employee turnover. And, finished the analysis with a classification machine learning model to predict Whether an employee left the company.
 
-**Data Exploration***
+**Data Exploration**
 
 During the Exploratory Data Analysis, the first thing I do was checking the data type of the variables, the results are shown below
 
@@ -140,9 +136,11 @@ The appropiate approach would be to ask the dataset owner to check these entries
 Moreover, during this exploratory analysis some limitations were evident, one of them are presented in the variable 'time_spend_company', which was crucial for the survival analysis, this variable wasn't collected on a monthly basis. Therefore, some of the keys insights are less accurate, because some problems that can led to turnover can happen earlier than expected. More information of the moment in which the employees left, can improve the reaction time of the action plan to prevent employee turnover.
 
 
-**Audience Appeal***
-
-**Visualizations (Teaser)***
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Results/HR_Dashboard_page-0001.jpg" width="auto" height="auto">
+<figcaption> <strong>Figure 5.</strong> HR Analysis Dashboard. </figcaption>
+</p>
+</figure>
 
 # Project organization
 
@@ -151,39 +149,57 @@ Moreover, during this exploratory analysis some limitations were evident, one of
 ├── Images/                             : All plots from the analysis
 │    ├── Plots/
 │    └── Results/
+├── HR_Dashboard.pbix                   : Power BI Dashboard   
 ├── HR-Project.ipynb                    : EDA, Survival Analysis, and ML implementation
 └── README.md                           : Report
 ```
 
 # Turnover Survival Analysis
 
-<font color="red"> Explain a little about what survival analysis is, how is going to help for this data set* </font>
+Objective: The objectives of this analysis is to use Survival Techniques to determine the Employee' lifetime in the span of 10 years to answer the following questions.
 
+- Which situations affect the employee's life time in the company?
+- Which actions can be made to prevent this employee loss?
+- Which factors are most important for employee turnover?
 
-<font color="red"> finished with the objectives of this section* </font>
+Our target variable for this analysis is "_Tenure_" (See **Table 1**), and as we can see in Figure 5, the number of employees who left the company was 1991, around 17% of the whole crew; this indicates that the out dataset is unbalance, since "Tenure" represent less than 20% of the  whole data.  
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Unbalance.png" width="auto" height="auto">
+<figcaption> <strong>Figure 5.</strong> Distribution of Employee Turnover. </figcaption>
+</p>
+</figure>
 
 <font color="red"> Introduce Kaplan-Meier Curve for Tenure* </font>
 
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Kaplan_Meier_Curve.png" width="auto" height="auto">
-<figcaption> <strong>Figure 5.</strong> Survival Curve for all Employees in the dataset. </figcaption>
+<figcaption> <strong>Figure 6.</strong> Survival Curve for all Employees in the dataset. </figcaption>
 </p>
 </figure>
+
 
 
 <font color="red"> Explain each findings in Tenure vs Salary, Department, Promotion, Monthly Hours, Last Evaluation, Satisfaction, Work Accidents, and Number of projects.** </font>
 
-**Salary**
+### Salary
+
+We know that Compensation is one of the most importat aspect on Employee Retention. In fact, this <a href= "https://www.scirp.org/journal/paperinformation?paperid=126223#:~:text=Studies%20have%20shown%20that%20compensation,to%20stay%20with%20their%20organizations"> study </a> suggest that employees who earn more are more likely to stay with their organizations. In the followed image, the data was grouped according to their respective salary range (Low, Medium, or High), and plot their respective Survival Curve to analyze its relationship.
 
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Salary.png" width="auto" height="auto">
-<figcaption> <strong>Figure 6.</strong> Survival Curve in Salary groups (left), and number of employees in each group (right). </figcaption>
+<figcaption> <strong>Figure 7.</strong> Survival Curve in Salary groups (left), and number of employees in each group (right). </figcaption>
 </p>
 </figure>
 
-**Departments**
+As we can see, Salary plays an important role in Employee retention. The highest number of employee turnover comes from the Low range salary group, roughly 21% of the whole crew left for this reason. Employees from the Medium group who left represents 15%, and Employees from the High group who left were only less than 5%. Because the majority of the company crew comes from the Low and Medium salary group, this issue could be more detrimental if is not fix promptly.
+
+**Suggestions:** To improve Employee loss because of salary, the organization can start offering competitive compensation packages, either direct or indirect. These packages can be, but isn´t limited to, better health isurance, retirement plans, paid time off, or bonuses.
+
+### Departments
 
 <figure class="image">
 <p align="center">
@@ -192,7 +208,9 @@ Moreover, during this exploratory analysis some limitations were evident, one of
 </p>
 </figure>
 
-**Promotion**
+### Promotion
+
+Employees who feel recognized and rewarded tend to work harder and are more likelty to stay with their company, but isn't limited, this kind of recognitions boost employees confidence, and drive possitive attitudeds in the work place (Marschall, 2023). In this analysis, employees were divided in in two groups according to whether they were promoted or not, in the last 5 years.
 
 <figure class="image">
 <p align="center">
@@ -201,7 +219,11 @@ Moreover, during this exploratory analysis some limitations were evident, one of
 </p>
 </figure>
 
-**Monthly Hours**
+As we can see that after 3 years, employees started quitting. The group of employees who didn't recieved a promotion had a lower life expectancy compared to the other group, after 3 more years there was a 50% chance of employee turnover, the biggest drop on survival was the 5th year. Meanwhile, the other group didn't show any tendency of quitting after 10 years of work. Additionaly, the majority of the 1991 employees who left comes from the group who didn't recieved this recognition.
+
+**Suggestions:** Some expert suggests having a regular date to celebrate employees milestone, this type of events can include, employee of the month, or performance reviews. This kind of activities make employees to do better for each period of time. Other solutions could be the implementation of new career success within the company, such as position promotion.
+
+### Monthly Hours
 
 <figure class="image">
 <p align="center">
@@ -210,7 +232,7 @@ Moreover, during this exploratory analysis some limitations were evident, one of
 </p>
 </figure>
 
-**Evaluation**
+### Evaluation
 
 <figure class="image">
 <p align="center">
@@ -219,7 +241,9 @@ Moreover, during this exploratory analysis some limitations were evident, one of
 </p>
 </figure>
 
-**Satisfaction**
+### Satisfaction
+
+Similar to the Compensation aspect, many employee's lifetime is linked to its satisfaction withtin the organization, because  employees who are satisfied with their jobs will build relationships, be productive, and stay with the company (Swofford, 2023). In this analysis, the variable "_satisfaction_level_" was measured continuosly, ranging from 0 to 1. Therefore, to analyze it, the data was divided in three 3 groups, each one with the same size in leght. Then, each employee was classified as either, Low, Medium or High, according to their respective satisfaction level.  
 
 <figure class="image">
 <p align="center">
@@ -228,7 +252,9 @@ Moreover, during this exploratory analysis some limitations were evident, one of
 </p>
 </figure>
 
-**Work Accidents**
+From the previous graph, we can employees with a high satisfaction didn't show any tendency of leaving in the span of 10 years, while the other group had a big decline after 5 years of work, in fact employees who felt a medium satisfaction were more likely to quit than the group of low satisfaction. However, the rate at which employees from the low group quit was more rapid in the first 5 years than the medium group.
+
+### Work Accidents
 
 <figure class="image">
 <p align="center">
@@ -237,7 +263,7 @@ Moreover, during this exploratory analysis some limitations were evident, one of
 </p>
 </figure>
 
-**Number of Projects**
+### Number of Projects
 
 <figure class="image">
 <p align="center">
