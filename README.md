@@ -1,5 +1,10 @@
 # Human Resource Analytics Employee Retention
 
+<p align="center">
+
+<img src="https://instaprop.com/blog/img/blog/alex-kotliarskyi-QBpZGqEMsKg-unsplash.jpg" width="400" height="auto">
+
+</p>
 
 Employee retention is defined as the organization's ability to prevent employee turnover, or the loss of organizational talent over a period of time, either voluntary or involuntary.  According to the Society for Human Resource Management (SHRM), the cost to replace just one employee can be three to four times the position's salary. In the US, the overall cost of employee turnover in 2020, was 630 billion dollars. Keeping turnover rates low helps you avoid these expenses and frees up money in the company budget to invest in people's development, benefits, and more.
 
@@ -156,13 +161,13 @@ Moreover, during this exploratory analysis some limitations were evident, one of
 
 # Turnover Survival Analysis
 
-Objective: The objectives of this analysis is to use Survival Techniques to determine the Employee' lifetime in the span of 10 years to answer the following questions.
+The objectives of this analysis is to use Survival Techniques to determine the Employee' lifetime in the span of 10 years to answer the following questions.
 
 - Which situations affect the employee's life time in the company?
 - Which actions can be made to prevent this employee loss?
 - Which factors are most important for employee turnover?
 
-Our target variable for this analysis is "_Tenure_" (See **Table 1**), and as we can see in Figure 5, the number of employees who left the company was 1991, around 17% of the whole crew; this indicates that the out dataset is unbalance, since "Tenure" represent less than 20% of the  whole data.  
+Our target variable for this analysis is "_Tenure_" (See **Table 1**), by grouping our data with respect the others variable and ploting their respective Kaplan-Meier Curves we would observed its behaviour. From the **Figure 5** we can see that the number of employees who left the company was 1991, around 17% of the whole crew; this indicates that the out dataset is unbalance, since "Tenure" represent less than 20% of the  whole data.  
 
 <figure class="image">
 <p align="center">
@@ -171,18 +176,7 @@ Our target variable for this analysis is "_Tenure_" (See **Table 1**), and as we
 </p>
 </figure>
 
-<font color="red"> Introduce Kaplan-Meier Curve for Tenure* </font>
 
-<figure class="image">
-<p align="center">
-<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Kaplan_Meier_Curve.png" width="auto" height="auto">
-<figcaption> <strong>Figure 6.</strong> Survival Curve for all Employees in the dataset. </figcaption>
-</p>
-</figure>
-
-
-
-<font color="red"> Explain each findings in Tenure vs Salary, Department, Promotion, Monthly Hours, Last Evaluation, Satisfaction, Work Accidents, and Number of projects.** </font>
 
 ### Salary
 
@@ -225,6 +219,8 @@ As we can see that after 3 years, employees started quitting. The group of emplo
 
 ### Monthly Hours
 
+For this analysis the variable "average_monthly_hours" was divided into 5 class intervals, in order to crate a new categorical data to compared its survival probability, each group was label as Very Low, Low, Medium, High, and Very High.
+
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Hours.png" width="auto" height="auto">
@@ -232,7 +228,11 @@ As we can see that after 3 years, employees started quitting. The group of emplo
 </p>
 </figure>
 
+We can observed that employees with "Very High" number of monthly hours tend to quit at the highest rate, in the 10 years span the survival probability of this group was 25%, meaning that 1 out of 4 employees who has very high number of monthly hours will remained in the organization at somepoint beyond 10 years. This behavior is similar to the employee's group who has a "High" number of monthly hours, in this case the survival probability was 35%, meaning that 7 out of 20 employees will stayed in the organization beyond 10 years. The group with the highest survival probability was the employee's who worked a "medium" number of monthly hours, its survival probability was roughly 80%, meaning that 4 out of 5 employees will stayed in the organization beyond 10 years, this pattern was similar with the remaining two groups. Moreover, we can notice that the critical years in which most employees quit was between the 3rd and 4th year, in this time there was a drop in the survival probability of  27.5% in average.   
+
 ### Evaluation
+
+The "last_evaluation" variable followed a similar procedures from the previous variable, this variable was divided in to 3 classes: Low, Medium, and High, in order to analyze its group behavior.
 
 <figure class="image">
 <p align="center">
@@ -240,6 +240,8 @@ As we can see that after 3 years, employees started quitting. The group of emplo
 <figcaption> <strong>Figure 10.</strong> Survival Curve in Last Evaluation groups (left), and number of employees in each group (right). </figcaption>
 </p>
 </figure>
+
+In this graph we can observed clearly that the employee's group who had a high score in their last performance review quit at a rapid rate than the others, this group had their biggest drop in the 4th and 5th year, with 20% and 35%, respectively. The employee's group with the high performance review score had a survival probability of 30%, meaning that 3 out of 10 employees will stayed in the organization beyond 10 years. The group with the highest probability group correspond to the employees who had a "medium" score in their last perfomance review, this group had a survival probability of 90%, meaning that 9 out of 10 employees will stayed in the organization beyond 10 years.
 
 ### Satisfaction
 
@@ -263,6 +265,8 @@ From the previous graph, we can employees with a high satisfaction didn't show a
 </p>
 </figure>
 
+We can observed that work accidents had a significant factor in the employee retention. The group who had accidents at work had a lower survival probability with respect the group who didn't, its survival probability was 45%, meaning that 9 out of 20 employees who had accidents at work will stayed in the organization beyond 10 years. Meanwhile, the group who didn't have accidents had a survival probability of, a bit higher than 80%, meaning that 4 out of 5 employees will stayed in the organization beyond 10 years.
+
 ### Number of Projects
 
 <figure class="image">
@@ -272,6 +276,10 @@ From the previous graph, we can employees with a high satisfaction didn't show a
 </p>
 </figure>
 
+We can observed that the group who contributed in a total of 7 projects didn't stay in the organization for more than 5 years, all of them quit at some point during this period. Meanwhile, the groups who contributed in 2, 6 or 5 projects followed similar patterns, this groups had a survival probability of roughly 35%, meaning than 7 out of 20 employees will stayed in the organization beyond 10 years. In contrast, the employee's group who contributed in 3 projects had the highest survival probability, 95%, meaning that 19 out of 20 employees will stayed in the organization beyond 10 years.
+
+**Suggestions:** This contrast suggest that having an excesive and very little amount of work is detrimental for employee retention, according to the results showed in the graphs, the ideal work balance to mantain a healthy work relationship is to let employees contribute in 3 projects. However, having 4 to 5 projects during the first 5 years of work didn't show signs of turnover, but having too much or too little work isn't ideal.
+
 **Cox Model Results**
 
 <figure class="image">
@@ -280,3 +288,24 @@ From the previous graph, we can employees with a high satisfaction didn't show a
 <figcaption> <strong>Figure 14.</strong> Cox Proportional Hazard Model Results. </figcaption>
 </p>
 </figure>
+
+From the previous results we can observed a relationship between the employee's survival time and the predictor variables. The region inside the rectangle red box represent the p-values associated with the z-statistics of the each predictor variable, this score indicates whether or not the evidence suggest that we should reject the null hypothesis of the analysis.
+
+The Null hypothesis states that: There are no survival experience of the subjects in the different groups.
+
+These scores indicates that salary, promotion, monthyl hours, satisfaction level, work accidents, and number of projects influence the survival time. The "exp(coef)", also known as Hazard Ratio, indicates that all the previous variables, except monthly hours had a decresed risk, meaning that for each one-unit change in the predictor, the hazard function change in the respective direction. The next graph shows the change for both the survival probability and cumulative hazard functions.  
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Results/output_52_0.png" width="auto" height="auto">
+<figcaption> <strong>Figure 1.</strong> Survival function (left) and Cumulative Hazard function (right). </figcaption>
+</p>
+</figure>
+
+In the left, we can observed from the Survival function that his behaviour is decreasing, meaning that through the years the survivial probability decrease, and beyond 6 years, the survival probability remain constant, meaning that there is a 65% chance that an employee will survive beyond this time. Meanwhile, in the right, from the cumulative hazard function we see that its behaviour is increasing and beyond 6 years, it becomes constant, meaning that the risk of an employee leaving is 45%.
+
+**Reference:**
+
+[1] Marschall Amy. (2023). Why Employee Recognition is an Important Part of a Thriving Workplace. Spring Health.  https://www.springhealth.com/blog/why-employee-recognition-is-important#article-heading-2
+
+[2] Meng Kheang Sorn, Adoree R. L. Fienena, Ali, Y., Muhammad Rafay, & Fu, G. (2023). The Effectiveness of Compensation in Maintaining Employee Retention. OAlib, 10(07), 1–14. https://doi.org/10.4236/oalib.1110394
