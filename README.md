@@ -16,7 +16,7 @@ Employee retention is defined as the organization's ability to prevent employee 
 - What can be done in order to improve retention?
 - How can we predict when an employee is likely to left?
 
-**Dataset Introduction**
+### Dataset Introduction
 
 The dataset used for this analysis can be found in <a href= "https://kaggle.com/datasets/mfaisalqureshi/hr-analytics-and-job-prediction/data">Kaggle</a>, this dataset is also part of the capstone project in the <a href= "https://www.coursera.org/professional-certificates/google-advanced-data-analytics"> Google Advanced Data Analytics Certificate</a>. This dataset contains employees information collected throughout 10 years, the information inside is distribuited in 15.000 rows and 10 columns, the columns are described as follows:
 
@@ -87,7 +87,7 @@ The dataset used for this analysis can be found in <a href= "https://kaggle.com/
 
 The Variables from the previous column, we can highlight **_left_** as our targer variable, and **_time_spend_company_** (or tenure), because this two variable are esential to perform a survival analysis. Therefore, with Survival Analysis techniques we can uncovered relevant features of employee turnover, in the timeline of 10 years.
 
-**Methodology Overview**
+### Methodology Overview
 
 Survival Analysis is a technique used to study the amount of time it takes before an event occurs, usually this events can only occur once (e.g death). For this analysis, we are interested in analyze the length of time before an employee decides to leave the company, find which groups are more likely to left, and why is that.
 
@@ -95,7 +95,7 @@ I used Kaplan-Meier Curves to represent the survival rate of employees in the ti
 
 I used Cox-Proportional Tests to analyze which factors influence the survival time and to find the predictor variables to employee turnover. And, finished the analysis with a classification machine learning model to predict Whether an employee left the company.
 
-**Data Exploration**
+### Data Exploration
 
 During the Exploratory Data Analysis, the first thing I do was checking the data type of the variables, the results are shown below
 
@@ -280,7 +280,7 @@ We can observed that the group who contributed in a total of 7 projects didn't s
 
 **Suggestions:** This contrast suggest that having an excesive and very little amount of work is detrimental for employee retention, according to the results showed in the graphs, the ideal work balance to mantain a healthy work relationship is to let employees contribute in 3 projects. However, having 4 to 5 projects during the first 5 years of work didn't show signs of turnover, but having too much or too little work isn't ideal.
 
-**Cox Model Results**
+## Cox Model Results
 
 <figure class="image">
 <p align="center">
@@ -304,7 +304,53 @@ These scores indicates that salary, promotion, monthyl hours, satisfaction level
 
 In the left, we can observed from the Survival function that his behaviour is decreasing, meaning that through the years the survivial probability decrease, and beyond 6 years, the survival probability remain constant, meaning that there is a 65% chance that an employee will survive beyond this time. Meanwhile, in the right, from the cumulative hazard function we see that its behaviour is increasing and beyond 6 years, it becomes constant, meaning that the risk of an employee leaving is 45%.
 
-**Reference:**
+# Machine learning Model
+
+### Decision Tree
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Decision_Tree.png" width="auto" height="auto">
+<figcaption> <strong>Figure .</strong> Decision Tree with max depth of 2. </figcaption>
+</p>
+</figure>
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/DTree_Features.png" width="auto" height="auto">
+<figcaption> <strong>Figure .</strong> Relevant features to make predictions based on Decision Trees. </figcaption>
+</p>
+</figure>
+
+### Random Forest
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/RandomF_Features.png" width="auto" height="auto">
+<figcaption> <strong>Figure .</strong> Relevant features to make predictions based on Random Forests. </figcaption>
+</p>
+</figure>
+
+### XGBoost
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Final_Features.png" width="auto" height="auto">
+<figcaption> <strong>Figure .</strong> Relevant features to make predictions based on XGBoosts. </figcaption>
+</p>
+</figure>
+
+### Final Model
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Results.png" width="auto" height="auto">
+<figcaption> <strong>Figure .</strong> XGBoost model Predictions (Left) and ROC curve (Right). </figcaption>
+</p>
+</figure>
+
+
+
+## Reference:
 
 [1] Marschall Amy. (2023). Why Employee Recognition is an Important Part of a Thriving Workplace. Spring Health.  https://www.springhealth.com/blog/why-employee-recognition-is-important#article-heading-2
 
