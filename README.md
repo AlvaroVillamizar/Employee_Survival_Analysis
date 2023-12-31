@@ -297,7 +297,7 @@ These scores indicates that salary, promotion, monthyl hours, satisfaction level
 
 <figure class="image">
 <p align="center">
-<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Results/Survival_Hazard.png" width="auto" height="auto">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Hazard.png" width="auto" height="auto">
 <figcaption> <strong>Figure 1.</strong> Survival function (left) and Cumulative Hazard function (right). </figcaption>
 </p>
 </figure>
