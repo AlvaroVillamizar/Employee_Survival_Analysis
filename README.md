@@ -1,14 +1,12 @@
 # Human Resource Analytics Employee Retention
 
 <p align="center">
-
 <img src="https://instaprop.com/blog/img/blog/alex-kotliarskyi-QBpZGqEMsKg-unsplash.jpg" width="400" height="auto">
-
 </p>
 
 Employee retention is defined as the organization's ability to prevent employee turnover, or the loss of organizational talent over a period of time, either voluntary or involuntary.  According to the Society for Human Resource Management (SHRM), the cost to replace just one employee can be three to four times the position's salary. In the US, the overall cost of employee turnover in 2020, was 630 billion dollars. Keeping turnover rates low helps you avoid these expenses and frees up money in the company budget to invest in people's development, benefits, and more.
 
-**Scope and Objectives**: In this project I analyzed and discussed the main causes for employee turnover by performing survival analysis and building a machine learning model, in order to give an answer to the following questions.
+**Scope and Objectives:** In this project I analyzed and discussed the main causes for employee turnover by performing survival analysis and building a machine learning model, in order to give an answer to the following questions.
 
 - What is the employee's lifetime in the company?
 - What are the significant factors that drive employee turnover?
@@ -151,11 +149,15 @@ Moreover, during this exploratory analysis some limitations were evident, one of
 
 ```
 .
-├── Images/                             : All plots from the analysis
+├── Data/
+│    ├── Cleaning_SQL.sql/              : SQL file with the cleaning process
+│    ├── HR_comma_sep.csv/              : Original dataset
+│    └── Hr_cleaned.csv/                : Cleaned dataset
+├── Images/                             : All plots and tables from the analysis
 │    ├── Plots/
 │    └── Results/
-├── HR_Dashboard.pbix                   : Power BI Dashboard   
 ├── HR-Project.ipynb                    : EDA, Survival Analysis, and ML implementation
+├── HR_Dashboard.pbix                   : Power BI Dashboard   
 └── README.md                           : Report
 ```
 
@@ -195,12 +197,16 @@ As we can see, Salary plays an important role in Employee retention. The highest
 
 ### Departments
 
+For this analysis, the dataset was group by department in order to find survival patterns related with its departments, then we plot each Kaplan Meier curve to analyze its behaviour.  
+
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Department.png" width="auto" height="auto">
 <figcaption> <strong>Figure 7.</strong> Survival Curve in Department groups (left), and number of employees in each group (right). </figcaption>
 </p>
 </figure>
+
+As we can see from the graph in the left, there exist a survival difference between each department, in fact the departments with the lowest retention expectancy were: Support, Technical and Sales, with a survival probability of roughly 40%, 45%, and 50% respectively. In contrast, the department with the highest retention expectancy was Management, with a survival probability of roughly 75%, meaning that 3 out of 4 employee from this department stayed in the organization beyond 10 years.
 
 ### Promotion
 
@@ -316,15 +322,15 @@ For our Decision Tree I used GridSearch the set that produces the best hyperpara
 - Minimum sample leaf [2, 5, 10, 20, 50] and [2, 3, 4, 5, 6, 7]
 - Maximum number of features [2, 3, 4, 5, None]
 - Maximum Number of leaf nodes [2, 4, 5, 6, 8]
-- Criterion ['entropy', 'gini']
+- Criterion [_'entropy'_, _'gini'_]
 
-Observations: The model wasn't sensible with the number of features, indicating that there isn't an fixed value for this parameter
+**Observations:** The model wasn't sensible with the number of features, indicating that there isn't an fixed value for this parameter
 
 The best parameters were:
 - Maximum depth [7]
 - Minimum sample leaf [2]
 - Maximum Number of leaf nodes [8]
-- Criterion ['entropy']
+- Criterion [_'entropy'_]
 
 The final decision tree is showed below,
 
@@ -354,10 +360,10 @@ For this model the used of GridSearch was used again, this process was divided i
 - Maximum depth [7, 9, 11, 13, 15, None],
 - Number of trees in the forest [65, 70, 75, 85, 95 100, 125, 150],
 - Minimum Number of samples to split a node [2, 4, 6, 8],
-- Criterion ['entropy', 'gini']
+- Criterion [_'entropy'_, _'gini'_]
 - Minimum sample leaf [1, 3, 5, 7]
 
-Observations: The model wasn't sensible to be affected by min_samples_leaf, min_sample_split, and criterion, indicating that there might be other interactions that affect the significance of the previous parameters.
+**Observations:** The model wasn't sensible to be affected by min_samples_leaf, min_sample_split, and criterion, indicating that there might be other interactions that affect the significance of the previous parameters.
 
 The best parameters were:
 - Number of trees in the forest [95],
@@ -401,7 +407,7 @@ In the followed graph we can observed the performance of each model with the val
 
 <figure class="image">
 <p align="center">
-<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Model_Comparison.png" width="auto" height="auto">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Results/Model_Comparison.png" width="auto" height="auto">
 <figcaption> <strong>Figure .</strong> XGBoost model Predictions (Left) and ROC curve (Right). </figcaption>
 </p>
 </figure>
