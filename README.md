@@ -401,7 +401,7 @@ In the followed graph we can observed the performance of each model with the val
 
 <figure class="image">
 <p align="center">
-<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Model_Comparison.png" width="auto" height="auto">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Results/Model_Comparison.png" width="auto" height="auto">
 <figcaption> <strong>Figure .</strong> XGBoost model Predictions (Left) and ROC curve (Right). </figcaption>
 </p>
 </figure>
