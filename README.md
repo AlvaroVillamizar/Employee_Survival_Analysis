@@ -293,7 +293,7 @@ From the previous results we can observed a relationship between the employee's 
 
 The Null hypothesis states that: There are no survival experience of the subjects in the different groups.
 
-These scores indicates that salary, promotion, monthyl hours, satisfaction level, work accidents, and number of projects influence the survival time. The "exp(coef)", also known as Hazard Ratio, indicates that all the previous variables, except monthly hours had a decresed risk, meaning that for each one-unit change in the predictor, the hazard function change in the respective direction. The next graph shows the change for both the survival probability and cumulative hazard functions.  
+These scores indicates that salary, promotion, monthly hours, satisfaction level, work accidents, and number of projects influence the survival time. The "exp(coef)", also known as Hazard Ratio, indicates that all the previous variables, except monthly hours had a decresed risk, meaning that for each one-unit change in the predictor, the hazard function change in the respective direction. The next graph shows the change for both the survival probability and cumulative hazard functions.  
 
 <figure class="image">
 <p align="center">
@@ -306,13 +306,36 @@ In the left, we can observed from the Survival function that his behaviour is de
 
 # Machine learning Model
 
+In this section, I explore different non-parametric, supervised learning, Tree-based models to predict whether an employee is likely to quit, the choosen models were: Decision Tree, Random Forest and XGBoost. To select the final model I analyzed its results from Precision, Recall, Accuracy, F1 (Harmonic mean) and ROC AUC scores using the validation data, the model who outperformes the others is going to be select to make the predictions based on the test data.
+
+
 ### Decision Tree
+
+For our Decision Tree I used GridSearch the set that produces the best hyperparameters' set based on the metrics mentioned above and provide a good balance between bias and variance, this process was divided in 3 stages to prevent overwhelming the machine. The hyperparameters explored were:
+- Maximum depth [4, 5, 6, 7, 8, 9, 10, 11, 12, 15]
+- Minimum sample leaf [2, 5, 10, 20, 50] and [2, 3, 4, 5, 6, 7]
+- Maximum number of features [2, 3, 4, 5, None]
+- Maximum Number of leaf nodes [2, 4, 5, 6, 8]
+- Criterion ['entropy', 'gini']
+
+Observations: The model wasn't sensible with the number of features, indicating that there isn't an fixed value for this parameter
+
+The best parameters were:
+- Maximum depth [7]
+- Minimum sample leaf [2]
+- Maximum Number of leaf nodes [8]
+- Criterion ['entropy']
+
+The final decision tree is showed below,
+
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Decision_Tree.png" width="auto" height="auto">
 <figcaption> <strong>Figure .</strong> Decision Tree with max depth of 2. </figcaption>
 </p>
 </figure>
+
+This decision tree was plotted until its 2nd level, because the complete tree was too big to analyze. From the previous figure we can observed that based on the gini score, satisfaction_level, last_evaluation, and  number_project, were among the most important features to decided whether an employee was likely to quit.
 
 <figure class="image">
 <p align="center">
@@ -321,7 +344,25 @@ In the left, we can observed from the Survival function that his behaviour is de
 </p>
 </figure>
 
+In this graph, we can observed the most important features, the importance was computed by the mean of the total reduction of the gini criterion.
+
 ### Random Forest
+
+For this model the used of GridSearch was used again, this process was divided in 3 stages to prevent overwhelming the machine. The hyperparameters explored were:
+
+- Number of trees in the forest [65, 70, 75, 85, 95 100, 125, 150],
+- Maximum depth [7, 9, 11, 13, 15, None],
+- Number of trees in the forest [65, 70, 75, 85, 95 100, 125, 150],
+- Minimum Number of samples to split a node [2, 4, 6, 8],
+- Criterion ['entropy', 'gini']
+- Minimum sample leaf [1, 3, 5, 7]
+
+Observations: The model wasn't sensible to be affected by min_samples_leaf, min_sample_split, and criterion, indicating that there might be other interactions that affect the significance of the previous parameters.
+
+The best parameters were:
+- Number of trees in the forest [95],
+- Maximum depth [11],
+- Maximum number of features [3]
 
 <figure class="image">
 <p align="center">
@@ -330,7 +371,22 @@ In the left, we can observed from the Survival function that his behaviour is de
 </p>
 </figure>
 
+This graph shows the most relevant features for Random Forest model, we can compared the relevance of this model with the Decision Tree model, one thing we can notice is that both number_project and tenure, were more important features than last_evaluation, indicating that work enviroment was more important for employees's turnover.
+
 ### XGBoost
+
+A similar process for tunning the parameters was deployed in this model. The hyperparameters explored were:
+
+- Maximum depth [4, 5, 6, 7, 8],
+- Learning rate [0.1, 0.2, 0.3],
+- Number of boosting stages [75, 100, 125],
+- Minimum sum of instance weight in a child [1, 2, 3, 4, 5]
+
+The best parameters were:
+- Maximum depth [7],
+- Learning rate [0.1],
+- Number of boosting stages [100],
+- Minimum sum of instance weight in a child [1]
 
 <figure class="image">
 <p align="center">
@@ -339,7 +395,22 @@ In the left, we can observed from the Survival function that his behaviour is de
 </p>
 </figure>
 
+In the previous graph we can observed the most important features for the XGBoost model, the features with the highest contribution in the predictions were: average_monthly_hours, satisfaction_level, and last_evaluation. In contrast, with the other two model, XGBoost considered average_monthly_hours in their most important features.
+
+In the followed graph we can observed the performance of each model with the validation data,
+
+<figure class="image">
+<p align="center">
+<img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Model_Comparison.png" width="auto" height="auto">
+<figcaption> <strong>Figure .</strong> XGBoost model Predictions (Left) and ROC curve (Right). </figcaption>
+</p>
+</figure>
+
+As we observed, the Random Forest model was roughly better than the XGBoost model on Precision, F1, and Accuracy. However, the difference were very little. Because of the results the XGBoost model tend to have on imbalance datasets, the size of the dataset, and the results showed above, I decided to choose the XGBoost model to make our predictions.
+
 ### Final Model
+
+In the graph below we observed the confusion matrix from our prediction.
 
 <figure class="image">
 <p align="center">
@@ -348,6 +419,7 @@ In the left, we can observed from the Survival function that his behaviour is de
 </p>
 </figure>
 
+Is showed that the model predicted correctly most of the employees who left, because in the right column we have the positive values (both false and true). The model predicted 11 false positive, meaning 11 employees who were categorized as "left the company", but in reality they stayed, and 458 true positives, it means 458 employees who really left the company. In the left column we have the negatives values, the first square indicates the true negatives, our model accuratly predicted that 2489 employees stayed in the company, while the remained 40 were categorized as "stayed in the company", but in reality they left. In the left we plotted the ROC AUC graph, this graph indicates the relationship of False positive rate and True positive rate, which was 0.96, and the red dotted line indicates the performance of a random classifier as comparison, which is set as 0.5.
 
 
 ## Reference:
