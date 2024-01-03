@@ -177,7 +177,7 @@ Our target variable is "_Tenure_" (See **Table 1**). From the **Figure 5** we ca
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Unbalance.png" width="auto" height="auto">
-<figcaption> <strong>Figure 5.</strong> Distribution of Employee Turnover. </figcaption>
+<figcaption> <strong>Figure 6.</strong> Distribution of Employee Turnover. </figcaption>
 </p>
 </figure>
 
@@ -207,7 +207,7 @@ For this analysis, the dataset was group by department in order to find survival
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Department.png" width="auto" height="auto">
-<figcaption> <strong>Figure 7.</strong> Survival Curve in Department groups (left), and number of employees in each group (right). </figcaption>
+<figcaption> <strong>Figure 8.</strong> Survival Curve in Department groups (left), and number of employees in each group (right). </figcaption>
 </p>
 </figure>
 
@@ -220,7 +220,7 @@ Employees who feel recognized and rewarded tend to work harder and are more like
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Promotion.png" width="auto" height="auto">
-<figcaption> <strong>Figure 8.</strong> Survival Curve in Promotion groups (left), and number of employees in each group (right). </figcaption>
+<figcaption> <strong>Figure 9.</strong> Survival Curve in Promotion groups (left), and number of employees in each group (right). </figcaption>
 </p>
 </figure>
 
@@ -235,7 +235,7 @@ For this analysis the variable _average_monthly_hours_ was divided into 5 class 
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Hours.png" width="auto" height="auto">
-<figcaption> <strong>Figure 9.</strong> Survival Curve in Monthly Hours groups (left), and number of employees in each group (right). </figcaption>
+<figcaption> <strong>Figure 10.</strong> Survival Curve in Monthly Hours groups (left), and number of employees in each group (right). </figcaption>
 </p>
 </figure>
 
@@ -248,7 +248,7 @@ The "last_evaluation" variable followed a similar procedures from the previous v
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Evaluation.png" width="auto" height="auto">
-<figcaption> <strong>Figure 10.</strong> Survival Curve in Last Evaluation groups (left), and number of employees in each group (right). </figcaption>
+<figcaption> <strong>Figure 11.</strong> Survival Curve in Last Evaluation groups (left), and number of employees in each group (right). </figcaption>
 </p>
 </figure>
 
@@ -261,7 +261,7 @@ Similar to the Compensation aspect, many employee's lifetime is linked to its sa
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Satisfaction.png" width="auto" height="auto">
-<figcaption> <strong>Figure 11.</strong> Survival Curve in Satisfaction groups (left), and number of employees in each group (right). </figcaption>
+<figcaption> <strong>Figure 12.</strong> Survival Curve in Satisfaction groups (left), and number of employees in each group (right). </figcaption>
 </p>
 </figure>
 
@@ -272,7 +272,7 @@ From the previous graph, we can see that employees with a high satisfaction didn
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Accidents.png" width="auto" height="auto">
-<figcaption> <strong>Figure 12.</strong> Survival Curve in Accident groups (left), and number of employees in each group (right). </figcaption>
+<figcaption> <strong>Figure 13.</strong> Survival Curve in Accident groups (left), and number of employees in each group (right). </figcaption>
 </p>
 </figure>
 
@@ -283,7 +283,7 @@ We can observed that the group who had accidents at work had a lower survival pr
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Projects.png" width="auto" height="auto">
-<figcaption> <strong>Figure 13.</strong> Survival Curve in Projects group (left), and number of employees in each group (right). </figcaption>
+<figcaption> <strong>Figure 14.</strong> Survival Curve in Projects group (left), and number of employees in each group (right). </figcaption>
 </p>
 </figure>
 
@@ -296,7 +296,7 @@ We can observed that the group who contributed in a total of 7 projects didn't s
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Results/Cox_Model_Results.png" width="auto" height="auto">
-<figcaption> <strong>Figure 14.</strong> Cox Proportional Hazard Model Results. </figcaption>
+<figcaption> <strong>Figure 15.</strong> Cox Proportional Hazard Model Results. </figcaption>
 </p>
 </figure>
 
@@ -307,7 +307,7 @@ These scores indicates that salary, promotion, monthly hours, satisfaction level
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Survival_Hazard.png" width="auto" height="auto">
-<figcaption> <strong>Figure 1.</strong> Survival function (left) and Cumulative Hazard function (right). </figcaption>
+<figcaption> <strong>Figure 16.</strong> Survival function (left) and Cumulative Hazard function (right). </figcaption>
 </p>
 </figure>
 
@@ -340,7 +340,7 @@ The final decision tree is showed below,
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Decision_Tree.png" width="auto" height="auto">
-<figcaption> <strong>Figure .</strong> Decision Tree with max depth of 2. </figcaption>
+<figcaption> <strong>Figure 17.</strong> Decision Tree with max depth of 2. </figcaption>
 </p>
 </figure>
 
@@ -349,7 +349,7 @@ This decision tree was plotted until its 2nd level, because the complete tree wa
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/DTree_Features.png" width="auto" height="auto">
-<figcaption> <strong>Figure .</strong> Relevant features to make predictions based on Decision Trees. </figcaption>
+<figcaption> <strong>Figure 18.</strong> Relevant features to make predictions based on Decision Trees. </figcaption>
 </p>
 </figure>
 
@@ -376,7 +376,7 @@ The best parameters were:
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/RandomF_Features.png" width="auto" height="auto">
-<figcaption> <strong>Figure .</strong> Relevant features to make predictions based on Random Forests. </figcaption>
+<figcaption> <strong>Figure 19.</strong> Relevant features to make predictions based on Random Forests. </figcaption>
 </p>
 </figure>
 
@@ -400,7 +400,7 @@ The best parameters were:
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Final_Features.png" width="auto" height="auto">
-<figcaption> <strong>Figure .</strong> Relevant features to make predictions based on XGBoosts. </figcaption>
+<figcaption> <strong>Figure 20.</strong> Relevant features to make predictions based on XGBoosts. </figcaption>
 </p>
 </figure>
 
@@ -411,7 +411,7 @@ In the followed graph we can observed the performance of each model with the val
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Results/Model_Comparison.png" width="auto" height="auto">
-<figcaption> <strong>Figure .</strong> XGBoost model Predictions (Left) and ROC curve (Right). </figcaption>
+<figcaption> <strong>Figure 21.</strong> XGBoost model Predictions (Left) and ROC curve (Right). </figcaption>
 </p>
 </figure>
 
@@ -424,7 +424,7 @@ In the graph below we observed the confusion matrix from our prediction.
 <figure class="image">
 <p align="center">
 <img src="https://github.com/AlvaroVillamizar/Employee_Survival_Analysis/blob/main/Images/Plots/Results.png" width="auto" height="auto">
-<figcaption> <strong>Figure .</strong> XGBoost model Predictions (Left) and ROC curve (Right). </figcaption>
+<figcaption> <strong>Figure 22.</strong> XGBoost model Predictions (Left) and ROC curve (Right). </figcaption>
 </p>
 </figure>
 
